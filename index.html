@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="fil">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#263951">
+<meta name="description" content="AP7 Term 2 Week 5 — limang araw na Interactive Practice sa imperyalismong Hapones at pananakop sa Pilipinas.">
+<title>AP7 • Term 2 Week 5 | Interactive Practice</title>
+<style>
+:root{--navy:#263951;--navy2:#384f65;--ink:#242840;--muted:#68728a;--line:#e1e5ef;--paper:#ffffff;--bg:#f6f7fd;--teal:#087e7a;--mint:#d8f5ed;--violet:#6f54c9;--coral:#d85c66;--blue:#3374bf;--amber:#a96a18;--good:#17784b;--bad:#b83e54}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.55;color:var(--ink);background:radial-gradient(circle at 4% 15%,#e8f4f3 0,transparent 28%),radial-gradient(circle at 98% 50%,#f0eaf9 0,transparent 25%),var(--bg)}
+button,input,a{font:inherit}
+button{cursor:pointer}
+button:disabled{cursor:default;opacity:.75}
+a{color:inherit}
+.container{width:min(1130px,calc(100% - 36px));margin-inline:auto}
+.site-top{background:var(--navy);color:white;padding:15px 0}
+.site-top .container{display:flex;justify-content:space-between;gap:15px;align-items:center}
+.brand{display:flex;gap:12px;align-items:center;font-size:.83rem;font-weight:800;letter-spacing:.11em}
+.brand-logo{width:46px;height:46px;border:2px solid #a3dcd4;border-radius:14px;display:grid;place-items:center;font-weight:950;color:#b9faea;font-size:1rem;letter-spacing:0}
+.brand strong{display:block;letter-spacing:.03em;font-size:.91rem}
+.brand small{display:block;color:#c4c9e0;font-weight:600;letter-spacing:.07em}
+.nav-btn{border:1px solid #737995;background:#ffffff13;color:white;border-radius:999px;padding:9px 15px;font-weight:800}
+.nav-btn:hover{background:#ffffff27}
+main{padding:26px 0 44px}
+.hidden{display:none!important}
+.hero{display:grid;grid-template-columns:1.65fr 1fr;gap:20px;background:linear-gradient(120deg,var(--navy),#71443f);border-radius:27px;color:white;padding:clamp(24px,4vw,45px);position:relative;overflow:hidden;isolation:isolate;box-shadow:0 20px 48px #262a4e20}
+.hero:after{content:"";position:absolute;right:-70px;top:-115px;width:350px;height:350px;border:46px solid #ffffff0a;border-radius:50%;z-index:-1}
+.eyebrow{color:#aef6e3;font-size:.78rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+h1{font-size:clamp(2rem,4.1vw,3.65rem);line-height:1.08;letter-spacing:-.045em;margin:11px 0 16px;font-weight:900}
+.hero p{max-width:590px;color:#e1e6f1;margin:0}
+.hero strong.highlight{color:#b5f7e6}
+.hero-illustration{display:flex;align-items:center;justify-content:center;min-height:230px}
+.orbit{height:222px;width:222px;border-radius:48px;border:2px solid #d9d8fe66;transform:rotate(-10deg);position:relative;background:linear-gradient(145deg,#ffffff11,#16a78a38);display:grid;place-items:center}
+.orbit:before,.orbit:after{content:"";position:absolute;border-radius:50%;background:#ffbe94;box-shadow:0 0 0 10px #ffbe941c}
+.orbit:before{width:20px;height:20px;top:-13px;left:42px}
+.orbit:after{width:13px;height:13px;right:-10px;bottom:42px;background:#bceef4}
+.orbit-main{text-align:center;transform:rotate(10deg);font-weight:950;font-size:5.5rem;letter-spacing:-.09em;line-height:1;color:#e8fff9}
+.orbit-main span{display:block;font-size:.85rem;letter-spacing:.2em;color:#afefe4}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:27px 0 18px}
+.section-head h2{font-size:1.55rem;letter-spacing:-.035em;margin:0}
+.section-head p{font-size:.92rem;color:var(--muted);margin:4px 0 0}
+.name-label{display:flex;align-items:center;gap:10px;font-size:.83rem;font-weight:800;color:var(--muted)}
+input{border:1px solid #d6dbe7;background:white;border-radius:11px;padding:10px 12px;min-width:210px;max-width:100%;color:var(--ink)}
+input:focus-visible,.choice:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #46a9b4;outline-offset:2px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.day-card{position:relative;background:white;border:1px solid #e2e6f0;border-radius:21px;padding:24px;box-shadow:0 10px 27px #2834570c;overflow:hidden}
+.day-card:last-child{grid-column:1/-1}
+.day-card:before{position:absolute;content:"";height:6px;inset:0 0 auto;background:var(--accent)}
+.card-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.day-tag{font-size:.73rem;letter-spacing:.1em;font-weight:950;text-transform:uppercase;border-radius:20px;color:var(--accent);background:var(--chip);padding:6px 10px}
+.day-num{color:#a6adbf;font-size:.81rem;font-weight:800;letter-spacing:.09em}
+.day-card h3{font-size:clamp(1.16rem,2vw,1.4rem);letter-spacing:-.026em;line-height:1.3;margin:16px 0 8px;max-width:580px}
+.sub{font-size:.89rem;color:var(--muted);min-height:22px;margin:0 0 17px}
+.card-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.button{border:0;background:var(--navy);color:white;font-weight:800;border-radius:12px;padding:11px 16px;display:inline-flex;justify-content:center;align-items:center;gap:7px;text-decoration:none;transition:transform .12s,filter .12s}
+.button:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.1)}
+.button.primary{background:var(--accent)}
+.button.youtube{background:#b72f48;color:#fff}
+.button.pending{background:#f2f3f7;color:#7d8294;cursor:default;font-size:.87rem}
+.button.secondary{color:var(--navy);background:#eef0f7}
+.button.outline{color:var(--ink);background:white;border:1px solid #cbd1de}
+.button.danger{background:#fff0f2;color:var(--bad)}
+.card-status{font-size:.8rem;color:var(--muted);background:#f6f7fa;border-radius:11px;margin:15px 0 0;padding:8px 10px}
+.note{background:#edf9f6;border:1px solid #bde8d9;border-radius:13px;color:#31645c;padding:13px 16px;font-size:.86rem;margin:24px 0}
+.work{max-width:940px;margin-inline:auto}
+.panel{background:white;border:1px solid #e1e5ee;box-shadow:0 12px 37px #25325412;border-radius:23px;padding:clamp(19px,4vw,35px)}
+.quiz-header{display:flex;justify-content:space-between;align-items:flex-start;gap:15px}
+.label{display:inline-flex;align-items:center;gap:6px;background:#e9f5f2;color:#167969;padding:6px 10px;border-radius:999px;font-weight:900;font-size:.75rem;letter-spacing:.05em}
+.label.final{background:#fef1da;color:#98600d}
+.quiz-title{font-size:clamp(1.3rem,2.6vw,1.85rem);letter-spacing:-.033em;line-height:1.3;margin:12px 0 0}
+.quiz-meta{margin-top:18px;display:flex;align-items:center;flex-wrap:wrap;gap:8px;color:#5e6679;font-size:.84rem}
+.meta{display:inline-flex;padding:7px 10px;background:#f3f5fa;border-radius:10px;gap:7px}
+.meta strong{font-variant-numeric:tabular-nums;color:#283052}
+.progress{margin:20px 0 26px;background:#e8eaf3;height:9px;border-radius:100px;overflow:hidden}
+.progress>div{width:0;height:100%;background:linear-gradient(90deg,#2db4a6,#8f77de);transition:width .2s}
+.question-kind{font-size:.79rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:var(--violet);margin-bottom:12px}
+.question-kind.final{color:#ae6a25}
+.question{font-size:clamp(1.1rem,2.1vw,1.34rem);font-weight:800;line-height:1.57;white-space:pre-wrap;margin:0 0 21px}
+.choices{display:grid;gap:10px}
+.choice{background:white;border:1.5px solid #dbe0ed;padding:13px 16px;border-radius:13px;display:flex;text-align:left;align-items:flex-start;gap:13px;color:#2b3047;width:100%;font-weight:630;transition:border-color .12s,background .12s}
+.choice:hover:not(:disabled){border-color:#8078b6;background:#fafaff}
+.letter{display:grid;place-items:center;width:29px;height:29px;flex:0 0 29px;border-radius:9px;background:#eff1f8;font-weight:950;color:#536078}
+.choice.correct{background:#e7f6ee;border-color:#60b08c;color:#165b3e}
+.choice.correct .letter{background:#b4e4cc;color:#145639}
+.choice.incorrect{background:#ffebee;border-color:#db7f90;color:#852b40}
+.choice.incorrect .letter{background:#f8c2cd;color:#78283a}
+.feedback{border-radius:12px;padding:14px 16px;margin-top:16px;font-size:.94rem;line-height:1.5}
+.feedback.good{background:#e6f5ec;color:#155b3a}
+.feedback.bad{background:#fff0f2;color:#8a3348}
+.after-choose{margin-top:16px;display:flex;justify-content:flex-end}
+.score-box{display:flex;align-items:baseline;gap:15px;flex-wrap:wrap;margin:15px 0}
+.score-number{font-size:clamp(3rem,8vw,5rem);line-height:1.1;letter-spacing:-.075em;font-weight:950;color:var(--navy)}
+.pill{display:inline-block;border-radius:999px;background:#eff2f8;padding:8px 12px;font-size:.84rem;font-weight:800;color:#525f75}
+.result-actions{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}
+.review-row{border-left:4px solid #d76d7c;padding:12px 15px;background:#fff5f6;border-radius:0 11px 11px 0;margin:12px 0;font-size:.88rem}
+.review-row p{margin:5px 0}
+.review-row strong{color:#683744}
+.review-row .answer{color:#176447}
+.dash-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.dash-number{background:#f1f4f9;border-radius:13px;padding:12px 15px}
+.dash-number strong{display:block;font-size:1.55rem;color:var(--navy)}
+.dash-number span{font-size:.81rem;color:var(--muted)}
+.tablewrap{overflow:auto}
+table{border-collapse:collapse;width:100%;font-size:.85rem;min-width:690px}
+th,td{text-align:left;border-bottom:1px solid #e5e7ed;padding:11px 10px;vertical-align:top}
+th{background:#f1f3f8;color:#3f4860}
+.dash-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+footer{padding:25px 15px 30px;text-align:center;color:#858c9c;font-size:.8rem}
+@media(max-width:780px){.hero{grid-template-columns:1fr}.hero-illustration{display:none}.cards{grid-template-columns:1fr}.day-card:last-child{grid-column:auto}.section-head{align-items:stretch;flex-direction:column}}
+@media(max-width:480px){.container{width:calc(100% - 24px)}.brand{font-size:.75rem}.hero{border-radius:19px}.day-card{padding:20px}.card-actions{grid-template-columns:1fr}.quiz-header{flex-direction:column}.quiz-header>.button{align-self:flex-start}.dash-summary{grid-template-columns:1fr 1fr}.site-top{padding:12px 0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="site-top">
+  <div class="container">
+    <div class="brand"><span class="brand-logo" aria-hidden="true">AP7</span><div><strong>ARALING PANLIPUNAN 7</strong><small>IKALAWANG TERMINO · IKALIMANG LINGGO</small></div></div>
+    <button class="nav-btn" id="dashboardNav">◫ Progress Dashboard</button>
+  </div>
+</header>
+<main class="container">
+  <section id="home">
+    <div class="hero">
+      <div><div class="eyebrow">Mula sa kaalaman tungo sa pag-unawa</div>
+        <h1>Japan sa Kasaysayan.<br><strong class="highlight">Sanhi, Bunga, at Pagbabago.</strong></h1>
+        <p>Limang araw ng interaktibong pagsasanay sa <strong>imperyalismong Hapones, pananalakay sa Asya at Pasipiko, at okupasyon sa Pilipinas</strong>.</p>
+      </div>
+      <div class="hero-illustration" aria-hidden="true"><div class="orbit"><div class="orbit-main">05<span>ARAW</span></div></div></div>
+    </div>
+    <div class="section-head">
+      <div><h2>Piliin ang araw ng aralin</h2><p>Video lesson at randomized Interactive Practice sa bawat araw.</p></div>
+      <label class="name-label">Pangalan <input id="studentName" type="text" maxlength="100" placeholder="Opsyonal na pangalan" autocomplete="name"></label>
+    </div>
+    <div class="cards" id="dayCards"></div>
+  </section>
+
+  <section id="quiz" class="hidden work" aria-label="Interactive Practice">
+    <div class="panel">
+      <div class="quiz-header"><div><span class="label" id="quizBadge">INTERACTIVE PRACTICE</span><h2 class="quiz-title" id="quizTitle"></h2></div><button id="quitBtn" class="button outline">← Mga Araw</button></div>
+      <div class="quiz-meta"><span class="meta">Bilang <strong id="itemCount">1 / 1</strong></span><span class="meta">⏱ Kabuoan <strong id="totalClock">00:00</strong></span><span class="meta">Oras sa tanong <strong id="itemClock">00:00</strong></span></div>
+      <div class="progress" role="progressbar" aria-label="Nakasagot na tanong" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressTrack"><div id="progressFill"></div></div>
+      <div class="question-kind" id="questionKind"></div>
+      <p class="question" id="questionText"></p>
+      <div class="choices" id="choices"></div>
+      <div id="feedback" role="status" aria-live="polite"></div>
+      <div class="after-choose hidden" id="nextWrap"><button id="nextBtn" class="button">Susunod →</button></div>
+    </div>
+  </section>
+
+  <section id="result" class="hidden work">
+    <div class="panel">
+      <span class="label">TAPOS NA ANG PAGSUBOK</span>
+      <h2 class="quiz-title" id="resultTitle"></h2>
+      <div class="score-box"><strong class="score-number" id="resultScore"></strong><span class="pill" id="resultPercent"></span><span class="pill" id="resultTime"></span></div>
+      <p id="resultMessage"></p>
+      <div class="result-actions"><button id="againBtn" class="button">↻ Bagong Random Attempt</button><button id="wrongBtn" class="button secondary">Ulitin ang Mali</button><button id="resultHomeBtn" class="button outline">Mga Araw</button></div>
+      <div id="wrongAnswers"></div>
+    </div>
+  </section>
+
+  <section id="dashboard" class="hidden work">
+    <div class="panel">
+      <div class="quiz-header"><div><span class="label">PROGRESS TRACKER</span><h2 class="quiz-title">Talaan ng mga Pagsubok</h2></div><button id="dashHomeBtn" class="button outline">← Mga Araw</button></div>
+      <p id="dashName"></p>
+      <div class="dash-summary" id="dashSummary"></div>
+      <div class="tablewrap"><table><thead><tr><th>Araw</th><th>Uri</th><th>Latest</th><th>Best</th><th>Attempts</th><th>Average</th><th>Oras</th><th>Mag-review</th></tr></thead><tbody id="dashRows"></tbody></table></div>
+      <div class="dash-actions"><button id="downloadBtn" class="button">↓ Download CSV</button><button id="resetBtn" class="button danger">I-reset ang Progreso</button></div>
+    </div>
+  </section>
+</main>
+<footer>AP7 · Term 2 · Week 5 · Self-contained interactive practice · Gumagana rin offline kapag na-download ang file.</footer>
+
+<script>
+const BANK = {
+  d1: {
+    title: "Sanhi ng Imperyalismo ng Japan noong Ikadalawampung Siglo – Industriyalisasyon at Modernisasyon",
+    subtitle: "Kasunduan sa Kanagawa, Meiji Restoration, zaibatsu at genro",
+    video: "https://youtu.be/n0R-3_Xebog",
+    practice: [
+      {"q": "Isang makapangyarihang pangkat ng mga negosyante, bangkero, at may-ari ng malalaking industriya ang naniwalang higit na lalaki ang kita ng Japan sa pagluluwas ng mga produkto. Anong pangkat ito?", "answer": "Zaibatsu", "options": ["Zaibatsu", "Genro", "Samurai", "Burukrasya"], "kind": "PAGKILALA"},
+      {"q": "Sa anong taon nabuksan ang mga daungan ng Japan sa pakikipagkalakalan sa Estados Unidos sa pamamagitan ng Kasunduan sa Kanagawa?", "answer": "1854", "options": ["1854", "1868", "1875", "1894"], "kind": "PAGKILALA"},
+      {"q": "Lumakas ang produksiyon ng Japan at kinailangan nitong humanap ng ibang lugar na mapagbebentahan ng mga produkto. Ano ang tawag sa mga pamilihang ito?", "answer": "Dayuhang pamilihan", "options": ["Dayuhang pamilihan", "Lokal na pamilihan", "Hilaw na materyales", "Pasilidad militar"], "kind": "PAGKILALA"},
+      {"q": "Anong pangkat ng mga retiradong estadista ang kabilang sa mga makapangyarihang pangkat na naging bahagi ng pagbabago sa Japan?", "answer": "Genro", "options": ["Genro", "Zaibatsu", "Samurai", "Mga bangkero"], "kind": "PAGKILALA"},
+      {"q": "Anong kasunduan ang nagbukas sa mga daungan ng Japan para sa pakikipagkalakalan sa Estados Unidos noong 1854?", "answer": "Kasunduan sa Kanagawa", "options": ["Kasunduan sa Kanagawa", "Treaty of Versailles", "Tripartite Pact", "Treaty of Protection"], "kind": "PAGKILALA"},
+      {"q": "Aling bansa ang naging pangunahing kaugnay ng pagbubukas ng Japan sa pamamagitan ng Kasunduan sa Kanagawa?", "answer": "Estados Unidos", "options": ["Estados Unidos", "Britain", "Russia", "France"], "kind": "PAGKILALA"},
+      {"q": "Sa sinisikap na pagpapaunlad ng Japan, kanino nakasentro ang estadong burukratiko na isinaayos kasabay ng modernisasyon?", "answer": "Emperador", "options": ["Emperador", "Punong ministro", "Gobernador-heneral", "Heneral"], "kind": "PAGKILALA"},
+      {"q": "Anong lumang sistemang panlipunan at pampamahalaan ang patuloy pang umiiral sa pagsisimula ng modernisasyon sa ilalim ng rehimeng Meiji?", "answer": "Piyudalismo", "options": ["Piyudalismo", "Militarisasyon", "Industriyalisasyon", "Kolonyalismo"], "kind": "PAGKILALA"},
+      {"q": "Anong pangyayaring nagsimula noong 1868 ang nagbigay-diin sa modernisasyon at pagpapalakas ng Japan?", "answer": "Meiji Restoration", "options": ["Meiji Restoration", "Kasunduan sa Kanagawa", "Tripartite Pact", "Treaty of Versailles"], "kind": "PAGKILALA"},
+      {"q": "Ano ang tawag sa larangan ng impluwensiyang inangkin ng mga makapangyarihang bansa sa Japan?", "answer": "Sphere of influence", "options": ["Sphere of influence", "Protectorate", "Kolonya", "Trade embargo"], "kind": "PAGKILALA"},
+      {"q": "Anong dalawang bansa ang sumunod sa Estados Unidos sa pagpapalawak ng impluwensiya sa Japan?", "answer": "Britain at Russia", "options": ["Britain at Russia", "France at Germany", "Germany at Italy", "China at Korea"], "kind": "PAGSASANAY"},
+      {"q": "Aling pangkat pangnegosyo ang binanggit na kaugnay ng zaibatsu?", "answer": "Mitsubishi", "options": ["Mitsubishi", "Genro", "Axis Powers", "Commonwealth"], "kind": "PAGSASANAY"},
+      {"q": "Ano ang taon ng Meiji Restoration?", "answer": "1868", "options": ["1868", "1854", "1878", "1886"], "kind": "PAGSASANAY"},
+      {"q": "Alin ang pangkat ng mga hilaw na materyales na mahalaga sa industriya ng Japan ayon sa aralin?", "answer": "Langis, karbon, goma at bakal", "options": ["Langis, karbon, goma at bakal", "Palay, mais, asukal at kape", "Ginto, pilak, perlas at tanso", "Kahoy, seda, tela at papel"], "kind": "PAGSASANAY"},
+      {"q": "Ano ang pangunahing gamit ng hilaw na materyales sa industriyalisasyon?", "answer": "Sangkap sa paggawa ng produkto", "options": ["Sangkap sa paggawa ng produkto", "Lugar ng pagbebenta ng produkto", "Kasunduan para sa kapayapaan", "Paraan ng pangangalakal ng serbisyo"], "kind": "PAGSASANAY"},
+      {"q": "Ano ang naging bunga ng unti-unting pagbuwag sa mga estrukturang piyudal at pagpapalakas ng industriya?", "answer": "Pag-unlad ng produksiyon at ekonomiya", "options": ["Pag-unlad ng produksiyon at ekonomiya", "Pagliit ng kakayahang magprodyus", "Pagpigil sa pakikipagkalakalan", "Pagpapanatili ng dating sistema"], "kind": "PAGSASANAY"},
+      {"q": "Bakit naging mahalaga ang dayuhang pamilihan sa mga industriyalista?", "answer": "Maipagbibili rito ang mga nalikhang produkto", "options": ["Maipagbibili rito ang mga nalikhang produkto", "Mapipigil nito ang pagdami ng mga produkto", "Maaalis nito ang pangangailangan sa kalakalan", "Mapananatili nito ang lumang piyudalismo"], "kind": "PAGSASANAY"},
+      {"q": "Aling pagkakasunod-sunod ang umaayon sa aralin?", "answer": "Pagbubukas sa Kanluran → modernisasyon → industriyalisasyon", "options": ["Pagbubukas sa Kanluran → modernisasyon → industriyalisasyon", "Industriyalisasyon → modernisasyon → pagbubukas sa Kanluran", "Modernisasyon → industriyalisasyon → pagbubukas sa Kanluran", "Industriyalisasyon → pagbubukas sa Kanluran → modernisasyon"], "kind": "PAGSASANAY"},
+      {"q": "Alin ang pinakamainam na paliwanag sa pag-usbong ng imperyalismong Hapones?", "answer": "Pinagsamang salik na pang-ekonomiya, pampolitika, panlipunan at estratehiko", "options": ["Pinagsamang salik na pang-ekonomiya, pampolitika, panlipunan at estratehiko", "Paglaki lamang ng produksiyon sa mga pabrika", "Pagbabago lamang sa sistemang pampamahalaan", "Pagpasok lamang ng mga dayuhang mangangalakal"], "kind": "PAGSASANAY"},
+      {"q": "Aling paninindigan ang angkop sa aral tungkol sa pag-unlad?", "answer": "Umunlad nang may paggalang sa kalayaan ng ibang bansa", "options": ["Umunlad nang may paggalang sa kalayaan ng ibang bansa", "Gamitin ang lakas upang kontrolin ang ibang bansa", "Unahin ang sariling kita kahit mapinsala ang iba", "Palawakin ang teritoryo kahit mawala ang kalayaan ng iba"], "kind": "PAGSASANAY"}
+    ],
+    final: [
+      {"q": "Gumawa ng timeline ang isang mag-aaral na naglalaman ng Kasunduan sa Kanagawa noong 1854, Meiji Restoration noong 1868, at paglakas ng industriya ng Japan. Aling pagsusuri ang pinakamalinaw na nagpapakita ng ugnayan ng mga pangyayaring ito?", "answer": "Ang pagbubukas sa Kanluran ay nagbigay-daan sa modernisasyon at pag-unlad ng industriya ng Japan.", "options": ["Ang pagbubukas sa Kanluran ay nagdulot agad ng lahat ng pagbabagong pang-industriya sa Japan.", "Ang pagbubukas sa Kanluran ay walang kaugnayan sa mga pagbabagong pang-industriya ng Japan.", "Ang pagbubukas sa Kanluran ay nagbigay-daan sa modernisasyon at pag-unlad ng industriya ng Japan.", "Ang pagbubukas sa Kanluran ay naganap matapos ang modernisasyon at paglakas ng industriya ng Japan."], "kind": "PAGSUSURI"},
+      {"q": "Lumalakas ang produksiyon ng Japan, ngunit dumarami rin ang kailangang materyales at mga produktong dapat maipagbili. Aling hakbang ang higit na tumutugon sa dalawang pangangailangang ito?", "answer": "Ang Japan ay kailangang kumuha ng hilaw na materyales at maghanap ng mga dayuhang pamilihan.", "options": ["Ang Japan ay kailangang kumuha ng hilaw na materyales at maghanap ng mga dayuhang pamilihan.", "Ang Japan ay kailangang magdagdag ng mga manggagawa at magpalawak ng mga paaralang teknikal.", "Ang Japan ay kailangang magbukas ng mga daungan at magpalakas ng ugnayang diplomatiko.", "Ang Japan ay kailangang magpalawak ng mga pabrika at magdagdag ng mga makinang pang-industriya."], "kind": "PAGSUSURI"},
+      {"q": "Sinuri ng isang pangkat ang pagpasok ng Estados Unidos, Britain, at Russia sa ugnayang panlabas ng Japan. Aling paliwanag ang pinakamalinaw na nagpapakita ng kahalagahan nito sa pag-usbong ng imperyalismong Hapones?", "answer": "Ang pagpasok ng mga Kanluranin ay nag-udyok sa Japan na tularan ang ilang gawi sa pagpapalakas ng bansa.", "options": ["Ang pagpasok ng mga Kanluranin ay nagpalawak ng ugnayan ngunit walang epekto sa mga ambisyon ng Japan.", "Ang pagpasok ng mga Kanluranin ay nagpahina sa Japan at tuluyang humadlang sa mga pagbabagong panloob nito.", "Ang pagpasok ng mga Kanluranin ay nagbigay sa Japan ng tuwirang kontrol sa mga lupaing Kanluranin.", "Ang pagpasok ng mga Kanluranin ay nag-udyok sa Japan na tularan ang ilang gawi sa pagpapalakas ng bansa."], "kind": "PAGSUSURI"},
+      {"q": "Gumawa ng talaan ang isang pangkat tungkol sa mga makapangyarihang pangkat sa panahon ng pagpapaunlad ng Japan. Aling pagkakaugnay ng pangkat at papel ang pinakatumpak?", "answer": "Zaibatsu — mga negosyante at industriyalista; Genro — mga nakatatandang estadista.", "options": ["Zaibatsu — mga retiradong estadista; Genro — mga negosyante at may-ari ng mga industriya.", "Zaibatsu — mga negosyante at industriyalista; Genro — mga nakatatandang estadista.", "Zaibatsu — mga kinatawang dayuhan; Genro — mga namamahala sa kalakalang panlabas.", "Zaibatsu — mga dayuhang mangangalakal; Genro — mga may-ari ng malalaking pabrika."], "kind": "PAGSUSURI"},
+      {"q": "Sa ilalim ng Meiji Restoration noong 1868, binigyang-diin ang modernisasyon ng Japan. Aling paliwanag ang pinakatumpak sa pangunahing layunin nito?", "answer": "Patatagin ang bansa sa pamamagitan ng pagbabago sa mga sistema at pagpapaunlad ng industriya.", "options": ["Palakasin ang monarkiya sa pamamagitan ng pagpapanatili ng mga lumang sistemang piyudal.", "Palawakin ang kalakalan sa pamamagitan ng pagpapahinto sa mga pagbabagong pang-industriya.", "Paunlarin ang ekonomiya sa pamamagitan ng pagpapanatili ng tradisyonal na produksiyong agrikultural.", "Patatagin ang bansa sa pamamagitan ng pagbabago sa mga sistema at pagpapaunlad ng industriya."], "kind": "PAGSUSURI"}
+    ]
+  },
+  d2: {
+    title: "Sanhi ng Imperyalismo ng Japan noong Ikadalawampung Siglo - Militarisasyon at iba pang Salik",
+    subtitle: "Seguridad, hukbong militar, populasyon at yamang likas",
+    video: "https://youtu.be/dziK5L8z53k",
+    practice: [
+      {"q": "Anong salik ng imperyalismong Hapones ang tumutukoy sa pagpapalakas ng hukbong militar upang mapatatag ang seguridad at kapangyarihan ng bansa?", "answer": "Militarisasyon", "options": ["Militarisasyon", "Modernisasyon", "Industriyalisasyon", "Diskriminasyon"], "kind": "PAGKILALA"},
+      {"q": "Anong bansa ang pinangambahan ng Japan na maging kolonya o protectorate ng ibang makapangyarihang bansa dahil sa maaaring banta nito sa seguridad?", "answer": "Korea", "options": ["Korea", "China", "Vietnam", "Malaysia"], "kind": "PAGKILALA"},
+      {"q": "Anong misyon ang iniugnay sa pag-aaral ng mga Hapones sa mga sistema at pamamaraan ng mga makapangyarihang Kanluranin?", "answer": "Misyong Iwakara", "options": ["Misyong Iwakara", "Meiji Restoration", "Kasunduan sa Kanagawa", "Tripartite Pact"], "kind": "PAGKILALA"},
+      {"q": "Aling dalawang bansang Europeo ang naging huwaran ng Japan sa pagpapaunlad at pagpapalakas ng hukbong militar?", "answer": "France at Germany", "options": ["France at Germany", "Britain at Russia", "Germany at Italy", "France at Britain"], "kind": "PAGKILALA"},
+      {"q": "Ano ang tawag sa hindi pantay na pagtrato sa mga Asyano na nagdagdag sa hinanakit ng Japan laban sa mga Kanluranin?", "answer": "Diskriminasyon", "options": ["Diskriminasyon", "Propaganda", "Militarisasyon", "Proteksiyon"], "kind": "PAGKILALA"},
+      {"q": "Ano ang tawag sa isang teritoryong may sariling pamahalaan ngunit napasailalim sa mahalagang kontrol o pangangalaga ng isang mas makapangyarihang bansa?", "answer": "Protectorate", "options": ["Protectorate", "Spoils system", "Sphere of influence", "Alyansang militar"], "kind": "PAGKILALA"},
+      {"q": "Anong pangunahing layunin ang nagtulak sa Japan na palakasin ang kakayahang ipagtanggol ang sarili laban sa mga dayuhang banta?", "answer": "Seguridad", "options": ["Seguridad", "Industriyalisasyon", "Pagluwas", "Diskriminasyon"], "kind": "PAGKILALA"},
+      {"q": "Anong kasunduang pangkapayapaan matapos ang Unang Digmaang Pandaigdig ang iniugnay sa usapin ng pagkilala sa kontribusyon ng Japan?", "answer": "Treaty of Versailles", "options": ["Treaty of Versailles", "Tripartite Pact", "Kasunduan sa Kanagawa", "Treaty of Protection"], "kind": "PAGKILALA"},
+      {"q": "Aling bansa ang hinangad ng Japan na palitan bilang mahalagang pamilihang agrikultural sa Timog-Silangang Asya?", "answer": "China", "options": ["China", "Korea", "Vietnam", "Japan"], "kind": "PAGKILALA"},
+      {"q": "Anong kasunduan noong 1854 ang itinuring ng Japan na hindi makatarungan at kaugnay ng kawalan nito ng tiwala sa mga Kanluranin?", "answer": "Kasunduan sa Kanagawa", "options": ["Kasunduan sa Kanagawa", "Treaty of Versailles", "Tripartite Pact", "Treaty of Protection"], "kind": "PAGKILALA"},
+      {"q": "Bakit naging limitado ang lupang sakahan ng Japan?", "answer": "Mabundok ang malaking bahagi ng kalupaan", "options": ["Mabundok ang malaking bahagi ng kalupaan", "Nasa disyerto ang malaking bahagi ng kalupaan", "Napapaligiran ng malawak na kapatagan ang bansa", "Laging natatakpan ng yelo ang buong bansa"], "kind": "PAGSASANAY"},
+      {"q": "Ano ang naging epekto ng paglaki ng populasyon at limitadong yamang likas?", "answer": "Lumaki ang pangangailangan sa karagdagang mapagkukunan", "options": ["Lumaki ang pangangailangan sa karagdagang mapagkukunan", "Nabawasan ang pangangailangan sa lupang sakahan", "Naging sapat ang lahat ng lokal na mapagkukunan", "Nawala ang pangangailangan sa mga produkto"], "kind": "PAGSASANAY"},
+      {"q": "Saang rehiyon pinag-isipang magpadala ng mga mamamayan ang Japan upang mapaunlad ang agrikultura?", "answer": "Timog-Silangang Asya", "options": ["Timog-Silangang Asya", "Hilagang Europa", "Timog Amerika", "Kanlurang Africa"], "kind": "PAGSASANAY"},
+      {"q": "Bakit naging mahalaga ang Korea sa seguridad ng Japan?", "answer": "Malapit ito sa Japan at maaaring kontrolin ng ibang kapangyarihan", "options": ["Malapit ito sa Japan at maaaring kontrolin ng ibang kapangyarihan", "Malayo ito sa Japan at walang kaugnayan sa rehiyon", "Ito ang pangunahing kanlungan ng hukbong Hapones sa Europa", "Ito ang pangunahing pamilihan ng Japan sa Amerika"], "kind": "PAGSASANAY"},
+      {"q": "Bakit pinag-aralan ang mga pamamaraan ng France at Germany?", "answer": "Upang gawing makabago ang sariling hukbong militar", "options": ["Upang gawing makabago ang sariling hukbong militar", "Upang ibalik ang lumang sistemang piyudal", "Upang itigil ang pagpapalakas ng hukbo", "Upang isuko ang sariling pamamahala"], "kind": "PAGSASANAY"},
+      {"q": "Ano ang naging epekto ng diskriminasyon at hindi makatarungang kasunduan?", "answer": "Lumalim ang kawalan ng tiwala sa Kanluranin", "options": ["Lumalim ang kawalan ng tiwala sa Kanluranin", "Nawala ang mga alalahanin sa seguridad", "Naging ganap ang pagtitiwala sa Kanluranin", "Tumigil ang hangaring mapanatili ang kasarinlan"], "kind": "PAGSASANAY"},
+      {"q": "Anong digmaan ang sinundan ng Treaty of Versailles na tinalakay sa aralin?", "answer": "Unang Digmaang Pandaigdig", "options": ["Unang Digmaang Pandaigdig", "Ikalawang Digmaang Pandaigdig", "Digmaang Anglo-Burmese", "Digmaang Ruso-Hapones"], "kind": "PAGSASANAY"},
+      {"q": "Ano ang hangarin ng Japan sa pakikipagkompetensiya sa mga Kanluranin?", "answer": "Makilala bilang pandaigdigang kapangyarihan", "options": ["Makilala bilang pandaigdigang kapangyarihan", "Maging kolonya ng mga Kanluranin", "Iwan ang sariling kasarinlan", "Itigil ang pakikipag-ugnayan sa ibang bansa"], "kind": "PAGSASANAY"},
+      {"q": "Aling sitwasyon ang nagpapakita ng dahilan na pangseguridad?", "answer": "Pagpapalakas ng hukbo dahil sa panganib mula sa ibang bansa", "options": ["Pagpapalakas ng hukbo dahil sa panganib mula sa ibang bansa", "Pagbukas ng pamilihan upang magbenta ng produkto", "Pagpaparami ng ani sa lupang sakahan", "Pagdaragdag ng pabrika upang lumaki ang produksiyon"], "kind": "PAGSASANAY"},
+      {"q": "Aling hakbang ang naaayon sa pagpapahalaga sa aralin?", "answer": "Tugunan ang pangangailangan sa mapayapang paraan", "options": ["Tugunan ang pangangailangan sa mapayapang paraan", "Sakupin ang karatig-bansa upang magkaroon ng yaman", "Ipagkait ang karapatan ng ibang bansa para sa seguridad", "Gamitin ang lakas upang pilitin ang ibang bansa"], "kind": "PAGSASANAY"}
+    ],
+    final: [
+      {"q": "Nangamba ang mga pinunong Hapones na mapasailalim ang Korea sa kontrol ng ibang makapangyarihang bansa. Bakit naging mahalagang usapin ang kalagayan ng Korea?", "answer": "Maaaring malagay sa panganib ang Japan kapag nakontrol ng ibang bansa ang Korea.", "options": ["Maaaring mawala ang ilang pamilihan ng Japan kapag lumawak ang kalakalan ng Korea.", "Maaaring malagay sa panganib ang Japan kapag nakontrol ng ibang bansa ang Korea.", "Maaaring mabawasan ang lupang sakahan ng Japan kapag lumaki ang populasyon ng Korea.", "Maaaring humina ang industriya ng Japan kapag dumami ang mga pagawaan sa Korea."], "kind": "PAGSUSURI"},
+      {"q": "Pinag-aralan ng Japan ang mga pamamaraang militar ng France at Germany. Aling paliwanag ang pinakatumpak tungkol sa layunin ng pagsisikap na ito?", "answer": "Nakatulong ito sa pagpapahusay ng kakayahan ng sariling hukbong militar.", "options": ["Nakatulong ito sa paghahanap ng lupang sakahan para sa lumalaking populasyon.", "Nakatulong ito sa pagpapalawak ng pamilihan para sa mga produktong Hapones.", "Nakatulong ito sa pagpaparami ng yamang likas sa loob mismo ng Japan.", "Nakatulong ito sa pagpapahusay ng kakayahan ng sariling hukbong militar."], "kind": "PAGSUSURI"},
+      {"q": "Patuloy na lumaki ang populasyon ng Japan habang nanatiling limitado ang lupang sakahan at yamang likas. Aling pagsusuri ang pinakamakatwiran?", "answer": "Kinailangan ng Japan ng iba pang mapagkukunan para sa populasyon at ekonomiya.", "options": ["Kinailangan ng Japan ng iba pang mapagkukunan para sa populasyon at ekonomiya.", "Kinailangan ng Japan ng mas maraming sundalo para mapalawak ang lupang sakahan.", "Kinailangan ng Japan ng higit pang kasunduan para mabawasan ang bilang ng mamamayan.", "Kinailangan ng Japan ng mga bagong pamilihan para dumami ang sakahan sa bansa."], "kind": "PAGSUSURI"},
+      {"q": "Naranasan ng Japan ang mga kasunduang itinuring na hindi makatarungan at ang diskriminasyon laban sa mga Asyano. Paano naapektuhan ang pananaw ng mga Hapones sa mga Kanluranin?", "answer": "Lalong nawalan ng tiwala ang Japan sa mga bansang Kanluranin.", "options": ["Lalong nagtiwala ang Japan sa proteksiyon ng mga bansang Kanluranin.", "Lalong umasa ang Japan sa pamamahala ng mga bansang Kanluranin.", "Lalong nawalan ng tiwala ang Japan sa mga bansang Kanluranin.", "Lalong sumang-ayon ang Japan sa mga patakaran ng mga bansang Kanluranin."], "kind": "PAGSUSURI"},
+      {"q": "Ang mga hinanakit ng Japan kaugnay ng Treaty of Versailles ay nagpalakas sa hangarin nitong magkaroon ng PANDAIGDIGANG PAGKILALA. Aling interpretasyon ang pinakamakatwiran?", "answer": "Nagpalakas ito sa hangarin ng Japan na makipagkompetensiya sa mga Kanluranin.", "options": ["Nagpalakas ito sa hangarin ng Japan na makipagkompetensiya sa mga Kanluranin.", "Nagpalakas ito sa hangarin ng Japan na umiwas sa pakikipag-ugnayan sa ibang bansa.", "Nagpalakas ito sa hangarin ng Japan na bawasan ang kakayahang ipagtanggol ang bansa.", "Nagpalakas ito sa hangarin ng Japan na isuko ang impluwensiya sa ibang mga bansa."], "kind": "PAGSUSURI"}
+    ]
+  },
+  d3: {
+    title: "Pamamaraan at Patakarang Kolonyal ng mga Hapones — Greater East Asia at Pananalakay sa Indochina",
+    subtitle: "Propaganda, French Indochina, Axis Powers at trade embargo",
+    video: "https://youtu.be/kMEHtD88PRA",
+    practice: [
+      {"q": "Sinong gobernador-heneral na Pranses sa Indochina ang humarap sa mga kahilingang militar ng Japan noong 1940?", "answer": "Jean Decoux", "options": ["Jean Decoux", "Tojo Hideki", "Douglas MacArthur", "Franklin D. Roosevelt"], "kind": "PAGKILALA"},
+      {"q": "Ano ang tawag sa pagpapalaganap ng mga mensahe at impormasyon upang maimpluwensiyahan ang pananaw at paniniwala ng mga tao?", "answer": "Propaganda", "options": ["Propaganda", "Negosasyon", "Militarisasyon", "Okupasyon"], "kind": "PAGKILALA"},
+      {"q": "Anong rehiyon sa hilagang Vietnam ang pinasok ng mga puwersang Hapones upang hadlangan ang mga suplay patungong China?", "answer": "Tonkin", "options": ["Tonkin", "Laos", "Cambodia", "Malaya"], "kind": "PAGKILALA"},
+      {"q": "Ilang sundalong Hapones ang pinahintulutang manatili sa Tonkin sa ilalim ng kasunduan noong Setyembre 1940?", "answer": "6,000", "options": ["6,000", "3,000", "9,000", "12,000"], "kind": "PAGKILALA"},
+      {"q": "Sinong pangulo ng Estados Unidos ang namuno sa pagpapatupad ng mga paghihigpit sa kalakalan sa Japan?", "answer": "Franklin D. Roosevelt", "options": ["Franklin D. Roosevelt", "Manuel L. Quezon", "Tojo Hideki", "Jean Decoux"], "kind": "PAGKILALA"},
+      {"q": "Anong patakarang pang-ekonomiya ang tumutukoy sa pagbabawal o mahigpit na paglilimita sa pakikipagkalakalan sa isang bansa?", "answer": "Trade Embargo", "options": ["Trade Embargo", "Tripartite Pact", "Sphere of influence", "Open city"], "kind": "PAGKILALA"},
+      {"q": "Anong konsepto ang ipinalaganap ng Japan na nangangako ng pagkakaisa at sama-samang kasaganaan ng mga bansang Asyano?", "answer": "Greater East Asia Co-Prosperity Sphere", "options": ["Greater East Asia Co-Prosperity Sphere", "Kasunduan sa Kanagawa", "Treaty of Versailles", "Axis Powers"], "kind": "PAGKILALA"},
+      {"q": "Anong alyansang militar noong Ikalawang Digmaang Pandaigdig ang kinabibilangan ng Japan, Germany, at Italy?", "answer": "Axis Powers", "options": ["Axis Powers", "Allied Powers", "Commonwealth", "Greater East Asia Co-Prosperity Sphere"], "kind": "PAGKILALA"},
+      {"q": "Anong kasunduan ang nilagdaan ng Japan, Germany, at Italy noong Setyembre 27, 1940?", "answer": "Tripartite Pact", "options": ["Tripartite Pact", "Treaty of Versailles", "Kasunduan sa Kanagawa", "Treaty of Protection"], "kind": "PAGKILALA"},
+      {"q": "Anong teritoryong kolonyal ang binubuo ng mga lugar na kilala ngayon bilang Vietnam, Laos, at Cambodia?", "answer": "French Indochina", "options": ["French Indochina", "Korean Peninsula", "Malay Peninsula", "Philippine Archipelago"], "kind": "PAGKILALA"},
+      {"q": "Anong islogan ang ginamit ng Japan upang itaguyod umano ang pagkakaisa ng Asya?", "answer": "Asia for Asians", "options": ["Asia for Asians", "I Shall Return", "Open City", "Greater Europe"], "kind": "PAGSASANAY"},
+      {"q": "Sa anong taon ipinalaganap ang Greater East Asia Co-Prosperity Sphere ayon sa aralin?", "answer": "1940", "options": ["1940", "1854", "1868", "1945"], "kind": "PAGSASANAY"},
+      {"q": "Aling bansa ang namahala sa French Indochina noong panahong tinalakay?", "answer": "France", "options": ["France", "Britain", "Italy", "Germany"], "kind": "PAGSASANAY"},
+      {"q": "Aling mga kasalukuyang bansa ang bumubuo sa French Indochina?", "answer": "Vietnam, Laos at Cambodia", "options": ["Vietnam, Laos at Cambodia", "Japan, Korea at China", "Myanmar, Thailand at Malaysia", "Pilipinas, Indonesia at Brunei"], "kind": "PAGSASANAY"},
+      {"q": "Bakit naging pagkakataon para sa Japan ang pagkatalo ng France sa Germany noong 1940?", "answer": "Humina ang kapangyarihan ng France sa Indochina", "options": ["Humina ang kapangyarihan ng France sa Indochina", "Lumakas ang kontrol ng France sa Indochina", "Natigil ang lahat ng operasyong Hapones sa Asya", "Naging malaya agad ang lahat ng kolonya ng France"], "kind": "PAGSASANAY"},
+      {"q": "Ano ang pangunahing layunin ng pagpasok ng Japan sa Tonkin?", "answer": "Putulin ang mga daanan ng suplay patungong China", "options": ["Putulin ang mga daanan ng suplay patungong China", "Palakasin ang mga suplay ng China mula sa ibang bansa", "Ibalik ang kapangyarihan ng France sa rehiyon", "Itigil ang paggamit ng mga paliparang militar"], "kind": "PAGSASANAY"},
+      {"q": "Kailan nilagdaan ang kasunduan ng France at Japan tungkol sa pananatili ng sundalo sa Tonkin?", "answer": "Setyembre 22, 1940", "options": ["Setyembre 22, 1940", "Setyembre 27, 1940", "Hulyo 26, 1941", "Disyembre 7, 1941"], "kind": "PAGSASANAY"},
+      {"q": "Kailan nilagdaan ang Tripartite Pact?", "answer": "Setyembre 27, 1940", "options": ["Setyembre 27, 1940", "Setyembre 22, 1940", "Hulyo 26, 1941", "Disyembre 8, 1941"], "kind": "PAGSASANAY"},
+      {"q": "Anong hakbang ang ipinag-utos ng Estados Unidos noong Hulyo 26, 1941?", "answer": "Pag-freeze ng mga ari-ariang pinansiyal ng Japan", "options": ["Pag-freeze ng mga ari-ariang pinansiyal ng Japan", "Paglagda sa Tripartite Pact kasama ang Japan", "Pagbubukas ng mga paliparan para sa Japan", "Pagpapadala ng karagdagang langis sa Japan"], "kind": "PAGSASANAY"},
+      {"q": "Ano ang pinakaangkop na batayan sa pagsusuri ng propaganda?", "answer": "Ihambing ang ipinangakong mensahe sa aktuwal na pagkilos", "options": ["Ihambing ang ipinangakong mensahe sa aktuwal na pagkilos", "Tanggapin ang mensahe kahit salungat sa pagkilos", "Ituring na totoo ang lahat ng islogan", "Husgahan ang mensahe batay lamang sa ganda nito"], "kind": "PAGSASANAY"}
+    ],
+    final: [
+      {"q": "Ipinangako ng Japan ang PAGKAKAISA AT SAMA-SAMANG KASAGANAAN ng Asya, ngunit pinalawak ang presensiyang militar sa Indochina. Aling interpretasyon ang pinakamakatwiran?", "answer": "Ang mensahe ng pagkakaisa ay ginamit upang palawakin ang impluwensiya ng Japan sa Asya.", "options": ["Ang mensahe ng pagkakaisa ay ginamit upang itaguyod ang pantay na pamamahala sa Asya.", "Ang mensahe ng pagkakaisa ay ginamit upang palakasin ang sariling pamahalaan ng bawat bansa.", "Ang mensahe ng pagkakaisa ay ginamit upang palawakin ang impluwensiya ng Japan sa Asya.", "Ang mensahe ng pagkakaisa ay ginamit upang wakasan ang mga operasyong militar sa Asya."], "kind": "PAGSUSURI"},
+      {"q": "Pinahintulutan ng kasunduan noong SETYEMBRE 22, 1940 ang limitadong pananatili ng mga sundalong Hapones sa Tonkin. Aling pagsusuri ang pinakatumpak?", "answer": "Nagbigay ang kasunduan ng pagkakataong mapalawak ang presensiyang militar ng Japan sa Tonkin.", "options": ["Nagbigay ang kasunduan ng pagkakataong mapalawak ang presensiyang militar ng Japan sa Tonkin.", "Nagbigay ang kasunduan ng pagkakataong mapatatag ang kapangyarihang kolonyal ng France sa Tonkin.", "Nagbigay ang kasunduan ng pagkakataong mabawasan ang bilang ng sundalong Hapones sa Tonkin.", "Nagbigay ang kasunduan ng pagkakataong mapalakas ang kontrol ng China sa hilagang Tonkin."], "kind": "PAGSUSURI"},
+      {"q": "Natalo ang FRANCE sa Germany noong 1940. Sa pamamahala ni JEAN DECOUX, hinarap ng mga Pranses ang mga kahilingang militar ng Japan. Aling paliwanag ang pinakamakatwiran?", "answer": "Ang paghina ng France ay nagbigay ng pagkakataon sa Japan na magpasok ng sariling hukbo.", "options": ["Ang paghina ng France ay nagbigay ng pagkakataon sa China na kontrolin ang buong Indochina.", "Ang paghina ng France ay nagbigay ng pagkakataon sa mga Pranses na palakasin ang hukbo.", "Ang paghina ng France ay nagbigay ng pagkakataon sa Japan na salakayin ang kanlurang Europa.", "Ang paghina ng France ay nagbigay ng pagkakataon sa Japan na magpasok ng sariling hukbo."], "kind": "PAGSUSURI"},
+      {"q": "Nagpatupad ang Estados Unidos ng TRADE EMBARGO matapos lumawak ang kontrol ng Japan sa Indochina. Aling pagsusuri ang nagpapakita ng naging epekto ng embargo?", "answer": "Nilimitahan ng embargo ang pagkuha ng Japan ng langis at kagamitan.", "options": ["Niluwagan ng embargo ang pagkuha ng Japan ng mga kagamitang pangmilitar.", "Pinalawak ng embargo ang kalakalan ng Japan sa mga pamilihang Amerikano.", "Nilimitahan ng embargo ang pagkuha ng Japan ng langis at kagamitan.", "Pinadali ng embargo ang pagkuha ng Japan ng mga produktong industriyal."], "kind": "PAGSUSURI"},
+      {"q": "Lumagda ang Japan sa TRIPARTITE PACT kasama ang Germany at Italy noong Setyembre 27, 1940. Ano ang ipinakikita ng kasunduang ito?", "answer": "Pinagtibay ng Japan ang alyansang militar sa Germany at Italy.", "options": ["Pinagtibay ng Japan ang alyansang militar sa Germany at Italy.", "Pinagtibay ng Japan ang pakikipag-alyansa sa France laban sa Germany.", "Pinagtibay ng Japan ang kasunduang pangkapayapaan sa China at France.", "Pinagtibay ng Japan ang ugnayan sa hukbo ng Estados Unidos."], "kind": "PAGSUSURI"}
+    ]
+  },
+  d4: {
+    title: "Pagsisimula ng Pananalakay ng Japan",
+    subtitle: "Negosasyon, Pearl Harbor at paglawak ng digmaan",
+    video: "https://youtu.be/GpBpKKBTz6o",
+    practice: [
+      {"q": "Sinong punong ministro ng Japan ang namuno sa pamahalaan sa panahon ng paghahanda at pagpapasiyang makipagdigma noong 1941?", "answer": "Tojo Hideki", "options": ["Tojo Hideki", "Jean Decoux", "Franklin D. Roosevelt", "Douglas MacArthur"], "kind": "PAGKILALA"},
+      {"q": "Sa anong petsa naganap ang biglaang pag-atake ng Japan sa Pearl Harbor batay sa lokal na oras ng Hawaii?", "answer": "Disyembre 7, 1941", "options": ["Disyembre 7, 1941", "Disyembre 1, 1941", "Disyembre 8, 1941", "Nobyembre 5, 1941"], "kind": "PAGKILALA"},
+      {"q": "Ano ang tawag sa pangkat ng mga barkong pandigma na ginagamit sa mga operasyong militar?", "answer": "Plota", "options": ["Plota", "Hukbong panghimpapawid", "Pangkat ng estadista", "Pangkat ng negosyante"], "kind": "PAGKILALA"},
+      {"q": "Sa anong pulo sa Hawaii matatagpuan ang Pearl Harbor?", "answer": "Oahu", "options": ["Oahu", "Maui", "Kauai", "Lanai"], "kind": "PAGKILALA"},
+      {"q": "Anong bansang kapuluan sa Timog-Silangang Asya ang kabilang sa mga lugar na sinalakay ng Japan noong Disyembre 1941?", "answer": "Pilipinas", "options": ["Pilipinas", "Korea", "India", "Nepal"], "kind": "PAGKILALA"},
+      {"q": "Anong base ng hukbong pandagat ng Estados Unidos ang biglaang sinalakay ng Japan noong Disyembre 7, 1941?", "answer": "Pearl Harbor", "options": ["Pearl Harbor", "Clark Field", "Iba Field", "Camp O’Donnell"], "kind": "PAGKILALA"},
+      {"q": "Sa anong petsa nagdeklara ng digmaan laban sa Japan ang Estados Unidos?", "answer": "Disyembre 8, 1941", "options": ["Disyembre 8, 1941", "Disyembre 1, 1941", "Disyembre 7, 1941", "Disyembre 22, 1941"], "kind": "PAGKILALA"},
+      {"q": "Sinong pangulo ng Estados Unidos ang namuno sa bansa nang magdeklara ng digmaan laban sa Japan?", "answer": "Franklin D. Roosevelt", "options": ["Franklin D. Roosevelt", "Manuel L. Quezon", "Jean Decoux", "Tojo Hideki"], "kind": "PAGKILALA"},
+      {"q": "Saang bahagi ng Estados Unidos matatagpuan ang pulo ng Oahu?", "answer": "Hawaii", "options": ["Hawaii", "California", "Alaska", "New York"], "kind": "PAGKILALA"},
+      {"q": "Anong pandaigdigang digmaan ang pormal na sinalihan ng Estados Unidos matapos ang pag-atake sa Pearl Harbor?", "answer": "Ikalawang Digmaang Pandaigdig", "options": ["Ikalawang Digmaang Pandaigdig", "Unang Digmaang Pandaigdig", "Digmaang Anglo-Burmese", "Digmaang Ruso-Hapones"], "kind": "PAGKILALA"},
+      {"q": "Ano ang tawag sa pag-uusap upang malutas ang hindi pagkakaunawaan at magkaroon ng kasunduan?", "answer": "Negosasyon", "options": ["Negosasyon", "Okupasyon", "Propaganda", "Militarisasyon"], "kind": "PAGSASANAY"},
+      {"q": "Anong dalawang hakbang ng Estados Unidos ang tinutulan ng militaristang Hapones?", "answer": "Trade embargo at pagtulong sa China", "options": ["Trade embargo at pagtulong sa China", "Paglikas sa Corregidor at pagdaong sa Leyte", "Paglagda sa Tripartite Pact at pagbubukas ng Tonkin", "Pagbuo ng zaibatsu at modernisasyon ng Japan"], "kind": "PAGSASANAY"},
+      {"q": "Kailan iniutos ang paghahanda ng hukbong pandagat ng Japan para sa mga operasyong militar?", "answer": "Nobyembre 5, 1941", "options": ["Nobyembre 5, 1941", "Disyembre 1, 1941", "Disyembre 7, 1941", "Disyembre 8, 1941"], "kind": "PAGSASANAY"},
+      {"q": "Kailan pormal na pinagpasiyahan ng mga pinuno ng Japan ang pakikidigma?", "answer": "Disyembre 1, 1941", "options": ["Disyembre 1, 1941", "Nobyembre 5, 1941", "Disyembre 7, 1941", "Disyembre 8, 1941"], "kind": "PAGSASANAY"},
+      {"q": "Bakit nagpatuloy ang paghahandang militar habang may negosasyon pa?", "answer": "Naghanda ang Japan sakaling hindi magtagumpay ang pag-uusap", "options": ["Naghanda ang Japan sakaling hindi magtagumpay ang pag-uusap", "Nagkaroon na ng ganap na kasunduang pangkapayapaan", "Natigil na ang lahat ng tunggalian sa pagitan ng dalawang bansa", "Nagpasya na ang Japan na isuko ang lahat ng hukbo nito"], "kind": "PAGSASANAY"},
+      {"q": "Ano ang pangunahing target ng plano ng Japan sa Pearl Harbor?", "answer": "Plota ng hukbong pandagat ng Estados Unidos", "options": ["Plota ng hukbong pandagat ng Estados Unidos", "Pamahalaang Commonwealth ng Pilipinas", "Hukbong militar ng France sa Indochina", "Mga industriyalista ng Germany at Italy"], "kind": "PAGSASANAY"},
+      {"q": "Bakit nais pahinain ng Japan ang hukbong pandagat ng Estados Unidos?", "answer": "Upang mabawasan ang hadlang sa operasyong militar sa Timog-Silangang Asya", "options": ["Upang mabawasan ang hadlang sa operasyong militar sa Timog-Silangang Asya", "Upang mapalakas ang pagtatanggol ng Estados Unidos sa rehiyon", "Upang itigil ang lahat ng sariling operasyong militar sa Asya", "Upang mapabilis ang paglikas ng Commonwealth sa Estados Unidos"], "kind": "PAGSASANAY"},
+      {"q": "Alin ang kabilang sa mga lugar na sinalakay ng Japan sa Asya at Pasipiko na binanggit sa aralin?", "answer": "Guam, Wake Island at Hong Kong", "options": ["Guam, Wake Island at Hong Kong", "Paris, Rome at London", "Berlin, Moscow at Madrid", "Cairo, Athens at Istanbul"], "kind": "PAGSASANAY"},
+      {"q": "Aling pangyayari ang nauna ayon sa lokal na petsa ng Hawaii?", "answer": "Pag-atake sa Pearl Harbor noong Disyembre 7", "options": ["Pag-atake sa Pearl Harbor noong Disyembre 7", "Pagdeklara ng digmaan ng Estados Unidos noong Disyembre 8", "Pagdaong ng pangunahing puwersa sa Lingayen noong Disyembre 22", "Pagbagsak ng Bataan noong Abril 9"], "kind": "PAGSASANAY"},
+      {"q": "Ano ang naging bunga ng pag-atake sa Pearl Harbor sa Estados Unidos?", "answer": "Pormal na pagpasok sa Ikalawang Digmaang Pandaigdig", "options": ["Pormal na pagpasok sa Ikalawang Digmaang Pandaigdig", "Paglagda sa Tripartite Pact", "Paglikas ng hukbong Hapones sa Japan", "Pagwawakas ng Ikalawang Digmaang Pandaigdig"], "kind": "PAGSASANAY"}
+    ],
+    final: [
+      {"q": "Nagpatupad ang Estados Unidos ng TRADE EMBARGO laban sa Japan habang patuloy na nagbibigay ng tulong sa China. Aling pagsusuri ang nagpapakita ng naging epekto ng mga hakbang ng Estados Unidos?", "answer": "Lalong tumindi ang pagtutol ng mga militaristang Hapones sa Estados Unidos.", "options": ["Lalong nahikayat ang mga militaristang Hapones na makipagkalakalan sa Estados Unidos.", "Lalong tumindi ang pagtutol ng mga militaristang Hapones sa Estados Unidos.", "Lalong lumakas ang suporta ng mga militaristang Hapones sa patakaran ng Amerika.", "Lalong naging handa ang mga militaristang Hapones na ihinto ang pananalakay sa Asya."], "kind": "PAGSUSURI"},
+      {"q": "Nagpatuloy ang NEGOSASYON ng Japan at Estados Unidos habang naghahanda ang mga Hapones para sa digmaan. Aling interpretasyon ang pinakamakatwiran?", "answer": "Itinuring ng Japan na posible pa rin ang digmaan habang nagpapatuloy ang negosasyon.", "options": ["Itinuring ng Japan na sapat ang pag-uusap kaya itinigil ang lahat ng paghahandang militar.", "Itinuring ng Japan na nalutas ang mga suliranin kaya binawasan ang mga puwersang militar.", "Itinuring ng Japan na matagumpay ang negosasyon kaya isinantabi ang planong makipagdigma.", "Itinuring ng Japan na posible pa rin ang digmaan habang nagpapatuloy ang negosasyon."], "kind": "PAGSUSURI"},
+      {"q": "Sa pagpaplano ng pananalakay laban sa Estados Unidos, naging pangunahing target ng Japan ang PEARL HARBOR. Bakit napili ang naturang lugar?", "answer": "Dahil naroon ang malaking bahagi ng plotang Amerikano sa Pasipiko.", "options": ["Dahil naroon ang pangunahing sentro ng mga negosyasyong diplomatiko sa Pasipiko.", "Dahil naroon ang malaking bahagi ng plotang Amerikano sa Pasipiko.", "Dahil naroon ang pangunahing ruta ng mga suplay na patungong China.", "Dahil naroon ang mahahalagang imbakan ng langis para sa industriyang Hapones."], "kind": "PAGSUSURI"},
+      {"q": "Nagdulot ng malaking pinsala sa hukbong pandagat ng Estados Unidos ang pag-atake sa PEARL HARBOR. Aling pangyayari ang nagpapakita ng naging tugon ng Estados Unidos?", "answer": "Nagdeklara ang Estados Unidos ng digmaan laban sa Japan noong Disyembre 8.", "options": ["Nagpatuloy ang Estados Unidos sa negosasyon upang makabuo ng kasunduan sa Japan.", "Nagpasya ang Estados Unidos na ilipat ang plota mula Hawaii patungong Asya.", "Nagpasya ang Estados Unidos na manatiling hiwalay sa digmaan sa Asya at Pasipiko.", "Nagdeklara ang Estados Unidos ng digmaan laban sa Japan noong Disyembre 8."], "kind": "PAGSUSURI"},
+      {"q": "Bukod sa Pearl Harbor, sinalakay din ng Japan ang Pilipinas, Guam, Midway Island, Wake Island, Malaya, at Hong Kong. Ano ang ipinakikita ng lawak ng mga pag-atake?", "answer": "Saklaw ng plano ang mga teritoryo sa Asya at Pasipiko.", "options": ["Saklaw ng plano ang mga teritoryo sa Asya at Pasipiko.", "Saklaw ng plano ang mga teritoryo sa Europa at Atlantiko.", "Saklaw ng plano ang pagpapalawak ng mga kasunduan sa kalakalan.", "Saklaw ng plano ang pagpapatatag ng mga kolonya ng Britain."], "kind": "PAGSUSURI"}
+    ]
+  },
+  // DAY 5 VIDEO - palitan ang bakanteng video link sa ibaba.
+  d5: {
+    title: "Ang mga Hapones sa Pilipinas",
+    subtitle: "Bataan, Corregidor, okupasyon at paglaya",
+    video: "",
+    practice: [
+      {"q": "Sinong heneral ang nagdeklara sa Maynila bilang open city upang maiwasan ang pagkasira nito sa panahon ng pananalakay?", "answer": "Heneral Douglas MacArthur", "options": ["Heneral Douglas MacArthur", "Heneral Edward King Jr.", "Heneral Jonathan Wainwright", "Punong Ministro Tojo Hideki"], "kind": "PAGKILALA"},
+      {"q": "Sa anong petsa nagsimula ang pag-atake ng Japan sa Pilipinas, ilang oras matapos ang pananalakay sa Pearl Harbor?", "answer": "Disyembre 8, 1941", "options": ["Disyembre 8, 1941", "Disyembre 7, 1941", "Disyembre 22, 1941", "Enero 2, 1942"], "kind": "PAGKILALA"},
+      {"q": "Anong lugar ang naging sentro ng pagtatanggol ng mga puwersang Pilipino at Amerikano bago sila sumuko noong Abril 1942?", "answer": "Bataan", "options": ["Bataan", "Leyte", "Pampanga", "Pangasinan"], "kind": "PAGKILALA"},
+      {"q": "Anong lungsod ang idineklara bilang open city upang maiwasan ang malawakang pagkasira nito?", "answer": "Maynila", "options": ["Maynila", "Olongapo", "Cebu", "Davao"], "kind": "PAGKILALA"},
+      {"q": "Sinong pangulo ang nagpayo kay Heneral Douglas MacArthur tungkol sa pagdedeklara sa Maynila bilang open city?", "answer": "Pangulong Quezon", "options": ["Pangulong Quezon", "Pangulong Jose P. Laurel", "Pangulong Franklin D. Roosevelt", "Pangalawang Pangulong Sergio Osmeña"], "kind": "PAGKILALA"},
+      {"q": "Anong pangyayari ang sumunod sa pagsuko ng mga puwersang Pilipino at Amerikano sa Bataan at nagdulot ng pagkamatay ng libo-libong sundalo?", "answer": "Bataan Death March", "options": ["Bataan Death March", "Meiji Restoration", "Pagdaong sa Lingayen", "Pagdaong sa Leyte"], "kind": "PAGKILALA"},
+      {"q": "Sa anong petsa sumuko ang mga puwersang Pilipino at Amerikano na nagtatanggol sa Bataan?", "answer": "Abril 9, 1942", "options": ["Abril 9, 1942", "Mayo 6, 1942", "Marso 11, 1942", "Oktubre 20, 1944"], "kind": "PAGKILALA"},
+      {"q": "Anong lugar ang unang pinaglikasan ng pamahalaang Commonwealth at pinanggalingan ni MacArthur bago siya nagtungo sa Australia?", "answer": "Corregidor", "options": ["Corregidor", "Leyte", "Tonkin", "Look ng Lingayen"], "kind": "PAGKILALA"},
+      {"q": "Ano ang tawag sa pagkontrol ng puwersang militar ng isang bansa sa teritoryo ng ibang bansa?", "answer": "Okupasyon", "options": ["Okupasyon", "Negosasyon", "Propaganda", "Industriyalisasyon"], "kind": "PAGKILALA"},
+      {"q": "Anong taon natapos ang panahon ng pananakop ng Japan sa Pilipinas?", "answer": "1945", "options": ["1945", "1942", "1943", "1944"], "kind": "PAGKILALA"},
+      {"q": "Aling dalawang pasilidad militar ang sinalakay ng Japan noong Disyembre 8, 1941?", "answer": "Clark Field at Iba Field", "options": ["Clark Field at Iba Field", "Camp O’Donnell at Pearl Harbor", "Tonkin at Wake Island", "Leyte at Corregidor"], "kind": "PAGSASANAY"},
+      {"q": "Saang lalawigan matatagpuan ang Iba Field?", "answer": "Zambales", "options": ["Zambales", "Pampanga", "Pangasinan", "Tarlac"], "kind": "PAGSASANAY"},
+      {"q": "Kailan dumaong ang pangunahing puwersang Hapones sa Look ng Lingayen?", "answer": "Disyembre 22, 1941", "options": ["Disyembre 22, 1941", "Disyembre 8, 1941", "Disyembre 24, 1941", "Disyembre 26, 1941"], "kind": "PAGSASANAY"},
+      {"q": "Saang lalawigan matatagpuan ang Look ng Lingayen?", "answer": "Pangasinan", "options": ["Pangasinan", "Zambales", "Pampanga", "Bataan"], "kind": "PAGSASANAY"},
+      {"q": "Kailan lumikas ang pamahalaang Commonwealth patungong Corregidor?", "answer": "Disyembre 24, 1941", "options": ["Disyembre 24, 1941", "Disyembre 22, 1941", "Disyembre 26, 1941", "Enero 2, 1942"], "kind": "PAGSASANAY"},
+      {"q": "Kailan idineklara ang Maynila bilang open city?", "answer": "Disyembre 26, 1941", "options": ["Disyembre 26, 1941", "Disyembre 24, 1941", "Enero 2, 1942", "Marso 11, 1942"], "kind": "PAGSASANAY"},
+      {"q": "Kailan pinasok ng mga hukbong Hapones ang Maynila?", "answer": "Enero 2, 1942", "options": ["Enero 2, 1942", "Disyembre 26, 1941", "Marso 11, 1942", "Abril 9, 1942"], "kind": "PAGSASANAY"},
+      {"q": "Ano ang tawag sa pamahalaang nagpatuloy sa Estados Unidos matapos lumikas ang Commonwealth?", "answer": "Government-in-exile", "options": ["Government-in-exile", "Protectorate", "Open city", "Sphere of influence"], "kind": "PAGSASANAY"},
+      {"q": "Kailan umalis si MacArthur mula sa Corregidor patungong Australia?", "answer": "Marso 11, 1942", "options": ["Marso 11, 1942", "Abril 9, 1942", "Mayo 6, 1942", "Oktubre 20, 1944"], "kind": "PAGSASANAY"},
+      {"q": "Sinong heneral ang nagsuko sa mga puwersang nagtatanggol sa Bataan?", "answer": "Edward King Jr.", "options": ["Edward King Jr.", "Jonathan Wainwright", "Douglas MacArthur", "Tojo Hideki"], "kind": "PAGSASANAY"},
+      {"q": "Saan dinala ang mga bihag matapos ang sapilitang pagmamartsa at pagsakay sa tren?", "answer": "Camp O’Donnell sa Capas, Tarlac", "options": ["Camp O’Donnell sa Capas, Tarlac", "Clark Field sa Pampanga", "Iba Field sa Zambales", "Look ng Lingayen sa Pangasinan"], "kind": "PAGSASANAY"},
+      {"q": "Kailan bumagsak ang Corregidor?", "answer": "Mayo 6, 1942", "options": ["Mayo 6, 1942", "Abril 9, 1942", "Marso 11, 1942", "Oktubre 14, 1943"], "kind": "PAGSASANAY"},
+      {"q": "Sino ang naging pangulo ng Ikalawang Republika ng Pilipinas noong 1943?", "answer": "Jose P. Laurel", "options": ["Jose P. Laurel", "Manuel L. Quezon", "Sergio Osmeña", "Franklin D. Roosevelt"], "kind": "PAGSASANAY"},
+      {"q": "Ano ang tawag sa mga mandirigmang nagsagawa ng maliliit at biglaang pag-atake laban sa mananakop?", "answer": "Gerilya", "options": ["Gerilya", "Zaibatsu", "Genro", "Oligarko"], "kind": "PAGSASANAY"},
+      {"q": "Kailan dumaong ang mga puwersang Allied sa Leyte at nakabalik si MacArthur?", "answer": "Oktubre 20, 1944", "options": ["Oktubre 20, 1944", "Oktubre 14, 1943", "Mayo 6, 1942", "Abril 9, 1942"], "kind": "PAGSASANAY"}
+    ],
+    final: [
+      {"q": "Sinuri ng isang pangkat ang presensiya ng mga hukbong Amerikano sa Pilipinas at hangarin ng Japan na makontrol ang mga teritoryong may yamang langis sa Timog-Silangang Asya. Aling pagsusuri ang pinakamalinaw?", "answer": "Mahalaga ang Pilipinas dahil may mga puwersang Amerikano rito na maaaring makahadlang sa pagpapalawak ng Japan.", "options": ["Mahalaga ang Pilipinas dahil maaari itong maging pangunahing pamilihan ng Japan para sa mga produktong agrikultural.", "Mahalaga ang Pilipinas dahil maaari itong maging sentro ng negosasyon sa pagitan ng Japan at Estados Unidos.", "Mahalaga ang Pilipinas dahil may mga puwersang Amerikano rito na maaaring makahadlang sa pagpapalawak ng Japan.", "Mahalaga ang Pilipinas dahil maaaring magamit ang mga daungan nito upang mapalawak ang kalakalang Pranses sa rehiyon."], "kind": "PAGSUSURI"},
+      {"q": "Ipinakita sa isang timeline ang pag-atake sa Pearl Harbor noong Disyembre 7, 1941 at pagsisimula ng pananalakay sa Pilipinas noong Disyembre 8, 1941. Aling interpretasyon ang pinakatumpak?", "answer": "Ang dalawang pag-atake ay bahagi ng mabilis na pagpapalawak ng mga operasyong militar ng Japan.", "options": ["Ang dalawang pag-atake ay bahagi ng mabilis na pagpapalawak ng mga operasyong militar ng Japan.", "Ang dalawang pag-atake ay bahagi ng pagtatangkang magkaroon ng kasunduang pangkapayapaan sa rehiyon.", "Ang dalawang pag-atake ay bahagi ng pagpapalawak ng pamahalaang Commonwealth sa Timog-Silangang Asya.", "Ang dalawang pag-atake ay bahagi ng paglikas ng mga hukbong Amerikano mula sa kanilang mga base."], "kind": "PAGSUSURI"},
+      {"q": "Idineklara ang Maynila bilang open city sa payo ni Pangulong Quezon. Aling pagsusuri ang pinakamalinaw na nagpapakita ng layunin ng hakbang na ito?", "answer": "Ipinahayag ang open city upang mabawasan ang panganib ng pagkasira ng Maynila.", "options": ["Ipinahayag ang open city upang maging pangunahing lugar ng pagtatanggol ang Maynila.", "Ipinahayag ang open city upang maging pansamantalang himpilan ng pamahalaang Commonwealth ang Maynila.", "Ipinahayag ang open city upang magkaroon ng karagdagang puwersang militar ang Maynila.", "Ipinahayag ang open city upang mabawasan ang panganib ng pagkasira ng Maynila."], "kind": "PAGSUSURI"},
+      {"q": "Ipinakita sa isang pagsusuri ang paglikas ng pamahalaang Commonwealth patungong Corregidor at ang pagpapatuloy ng pagtatanggol ng mga puwersang Pilipino at Amerikano. Aling interpretasyon ang pinakamakatwiran?", "answer": "Ang paglikas ng pamahalaan ay maaaring maganap habang nagpapatuloy ang pagtatanggol ng hukbo.", "options": ["Ang paglikas ng pamahalaan ay nangangahulugang natapos na ang paglaban ng mga sundalo.", "Ang paglikas ng pamahalaan ay maaaring maganap habang nagpapatuloy ang pagtatanggol ng hukbo.", "Ang paglikas ng pamahalaan ay nangangahulugang napigilan na ang pag-atake ng mga Hapones.", "Ang paglikas ng pamahalaan ay maaaring maganap matapos matapos ang lahat ng labanang militar."], "kind": "PAGSUSURI"},
+      {"q": "Sa pagsusuri sa naging layunin ng Japan, binigyang-diin ang estratehikong lokasyon ng Pilipinas at pagkakaroon ng mga puwersang Amerikano rito. Aling interpretasyon ang pinakamalinaw?", "answer": "Ang lokasyon ng Pilipinas ay mahalaga sa pagpigil sa maaaring pagtutol ng mga puwersang Amerikano.", "options": ["Ang lokasyon ng Pilipinas ay mahalaga sa pagpapalawak ng pamahalaang Commonwealth sa ibang bansa.", "Ang lokasyon ng Pilipinas ay mahalaga sa pagpigil sa maaaring pagtutol ng mga puwersang Amerikano.", "Ang lokasyon ng Pilipinas ay mahalaga sa paglikha ng kasunduang magtatapos sa mga labanan sa Asya.", "Ang lokasyon ng Pilipinas ay mahalaga sa pagbibigay ng pangunahing suplay ng langis sa Estados Unidos."], "kind": "PAGSUSURI"}
+    ]
+  }
+};
+"use strict";
+const STORAGE = "ap7_t2_w5_reviewer_2026_v1";
+const LETTERS = ["A","B","C","D"];
+const ACCENTS = ["#087e7a","#6f54c9","#d85c66","#3374bf","#a96a18"];
+const CHIPS = ["#e0f7f0","#f0eaff","#ffebec","#e8f1fc","#fff2de"];
+const LABELS = ["Unang Araw","Ikalawang Araw","Ikatlong Araw","Ikaapat na Araw","Ikalimang Araw"];
+let progressState = loadState(), active = null, timer = null, lastRun = null;
+const $ = id => document.getElementById(id);
+const safe = value => String(value ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function loadState(){try {const s=JSON.parse(localStorage.getItem(STORAGE));return s&&typeof s==="object"&&s.records?s:{name:"",records:{}};}catch{return{name:"",records:{}}}}
+function persist(){try{localStorage.setItem(STORAGE,JSON.stringify(progressState))}catch{ /* Browser storage may be unavailable. */ }}
+function shuffle(array){let a=array.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function clock(seconds){const n=Math.max(0,Math.floor(seconds));return String(Math.floor(n/60)).padStart(2,"0")+":"+String(n%60).padStart(2,"0")}
+function percent(score,total){return total?Math.round(score/total*100):0}
+function recordKey(day){return day+":full"}
+function getRecord(day){return progressState.records[recordKey(day)]}
+function reveal(name){for(const id of ["home","quiz","result","dashboard"])$(id).classList.toggle("hidden",id!==name);window.scrollTo({top:0,behavior:"instant"})}
+function saveName(){progressState.name=$("studentName").value.trim();persist()}
+function renderHome(){
+ const days=Object.entries(BANK);
+ $("dayCards").innerHTML=days.map(([key,d],i)=>{
+   const rec=getRecord(key);
+   const summary=rec?'Pinakamataas: <strong>'+rec.best+'%</strong> · '+rec.attempts+' full review attempt(s)':'Wala pang naitalang full review.';
+   const video=d.video?'<a class="button youtube" href="'+safe(d.video)+'" target="_blank" rel="noopener noreferrer" aria-label="Buksan ang YouTube lesson para sa '+safe(LABELS[i])+'">▶ YouTube Lesson</a>':'<span class="button pending">◷ YouTube · susunod na update</span>';
+   return '<article class="day-card" style="--accent:'+ACCENTS[i]+';--chip:'+CHIPS[i]+'"><div class="card-top"><span class="day-tag">'+LABELS[i]+'</span><span class="day-num">AP7 / 0'+(i+1)+'</span></div><h3>'+safe(d.title)+'</h3><p class="sub">'+safe(d.subtitle)+'</p><div class="card-actions">'+video+'<button class="button primary" data-start="'+key+'">✎ Interactive Practice · '+(d.practice.length+d.final.length)+'</button></div><p class="card-status">'+summary+'</p></article>'
+ }).join("");
+}
+function prepare(item){return {...item,options:shuffle(item.options)}}
+function start(day,wrongItems){
+ clearInterval(timer);
+ const d=BANK[day];
+ const retry=Array.isArray(wrongItems);
+ const items=shuffle(retry?wrongItems:[...d.practice,...d.final]).map(prepare);
+ const mode=retry?"retry":"full";
+ active={day,mode,items,index:0,score:0,wrong:[],started:Date.now(),itemStarted:Date.now(),answered:false};
+ lastRun={day};
+ $("quizTitle").textContent=d.title;
+ $("quizBadge").textContent=mode==="retry"?"PAG-UULIT SA MALI":"INTERACTIVE PRACTICE";
+ reveal("quiz");renderQuestion();timer=setInterval(updateClocks,500);updateClocks()
+}
+function updateClocks(){if(!active)return;$("totalClock").textContent=clock((Date.now()-active.started)/1000);$("itemClock").textContent=clock((Date.now()-active.itemStarted)/1000)}
+function renderQuestion(){
+ const q=active.items[active.index];active.answered=false;active.itemStarted=Date.now();
+ $("itemCount").textContent=(active.index+1)+" / "+active.items.length;
+ const p=Math.round(active.index/active.items.length*100);$("progressFill").style.width=p+"%";$("progressTrack").setAttribute("aria-valuenow",String(p));
+ $("questionKind").textContent=q.kind || "PAGSASANAY";
+ $("questionKind").classList.remove("final");
+ $("questionText").textContent=q.q;
+ $("choices").innerHTML=q.options.map((option,i)=>'<button type="button" class="choice" data-option="'+i+'"><span class="letter">'+LETTERS[i]+'</span><span>'+safe(option)+'</span></button>').join("");
+ $("feedback").className="";$("feedback").textContent="";$("nextWrap").classList.add("hidden");
+ $("nextBtn").textContent=active.index===active.items.length-1?"Tingnan ang Resulta →":"Susunod →";
+}
+function choose(index){
+ if(!active||active.answered)return;
+ const q=active.items[active.index],chosen=q.options[index],correct=chosen===q.answer;
+ active.answered=true;
+ if(correct)active.score++;else active.wrong.push({...q,chosen,seconds:(Date.now()-active.itemStarted)/1000});
+ for(const button of $("choices").querySelectorAll(".choice")){
+   const option=q.options[Number(button.dataset.option)];button.disabled=true;
+   if(option===q.answer)button.classList.add("correct");
+   else if(option===chosen)button.classList.add("incorrect");
+ }
+ $("feedback").className="feedback "+(correct?"good":"bad");
+ $("feedback").innerHTML=correct?"✓ Tama! Mahusay ang pagsusuri!":"✗ Hindi tama. Ang tamang sagot ay <strong>"+safe(q.answer)+"</strong>.";
+ $("nextWrap").classList.remove("hidden");
+ $("nextBtn").focus({preventScroll:true});
+}
+function nextQuestion(){if(!active||!active.answered)return;if(active.index===active.items.length-1)finish();else{active.index++;renderQuestion()}}
+function finish(){
+ clearInterval(timer);
+ const seconds=(Date.now()-active.started)/1000,total=active.items.length,pct=percent(active.score,total);
+ if(active.mode!=="retry"){
+   const k=recordKey(active.day),old=progressState.records[k]||{attempts:0,best:0,totalScore:0,totalItems:0,time:0};
+   progressState.records[k]={attempts:old.attempts+1,best:Math.max(old.best,pct),latestScore:active.score,latestTotal:total,latest:pct,totalScore:old.totalScore+active.score,totalItems:old.totalItems+total,time:old.time+seconds,latestWrong:active.wrong.map(q=>({q:q.q,chosen:q.chosen,answer:q.answer})),lastDate:new Date().toISOString()};
+   persist();
+ }
+ $("resultTitle").textContent=BANK[active.day].title;
+ $("resultScore").textContent=active.score+" / "+total;
+ $("resultPercent").textContent=pct+"% ang tama";
+ $("resultTime").textContent="⏱ "+clock(seconds);
+ $("resultMessage").textContent=pct===100?"Napakahusay! Lahat ng tanong ay nasagutan nang tama.":pct>=80?"Magaling! Balikan ang ilang pagkakamali upang higit na tumibay ang pag-unawa.":"Ipagpatuloy ang pagsasanay. Maaaring ulitin ang mga maling sagot at magsimula ng panibagong random attempt.";
+ $("wrongBtn").disabled=!active.wrong.length;
+ $("wrongAnswers").innerHTML=active.wrong.length?'<h3>Mga Kailangang Balikan ('+active.wrong.length+')</h3>'+active.wrong.map((q,i)=>'<div class="review-row"><strong>'+(i+1)+'. '+safe(q.q)+'</strong><p>Pinili: '+safe(q.chosen)+'</p><p class="answer">Tamang sagot: <strong>'+safe(q.answer)+'</strong></p></div>').join(""):'<div class="note">Walang maling sagot sa pagsubok na ito.</div>';
+ reveal("result");renderHome()
+}
+function exitQuiz(){if(active&&active.index>0&&!confirm("Babalik sa mga araw? Hindi mase-save ang hindi natapos na pagsubok."))return;clearInterval(timer);active=null;renderHome();reveal("home")}
+function showDashboard(){
+ let attempts=0,seconds=0;
+ $("dashName").textContent="Mag-aaral: "+(progressState.name||"Walang inilagay na pangalan");
+ $("dashRows").innerHTML=Object.entries(BANK).map(([day],i)=>{
+    const r=getRecord(day);
+    if(r){attempts+=r.attempts;seconds+=r.time}
+    return '<tr><td><strong>'+safe(LABELS[i])+'</strong><div style="font-size:.76rem;color:#71809a">'+safe(BANK[day].title)+'</div></td><td>Interactive Practice</td><td>'+(r?r.latestScore+"/"+r.latestTotal+" ("+r.latest+"%)":"—")+'</td><td>'+(r?r.best+"%":"—")+'</td><td>'+(r?r.attempts:"0")+'</td><td>'+(r?percent(r.totalScore,r.totalItems)+"%":"—")+'</td><td>'+(r?clock(r.time):"—")+'</td><td><button class="button secondary" style="padding:6px 9px;font-size:.76rem" data-start="'+day+'">Simulan</button></td></tr>'
+ }).join("");
+ $("dashSummary").innerHTML='<div class="dash-number"><strong>'+attempts+'</strong><span>Kabuuang attempt</span></div><div class="dash-number"><strong>'+clock(seconds)+'</strong><span>Kabuuang oras</span></div><div class="dash-number"><strong>5</strong><span>Sesyon sa linggo</span></div>';
+ reveal("dashboard")
+}
+function downloadCSV(){
+ const rows=[["AP7 Term 2 Week 5","Progress"],["Mag-aaral",progressState.name||""],[],["Araw","Paksa","Uri","Latest","Best","Attempts","Average","Total Time"]];
+ Object.entries(BANK).forEach(([day,d],i)=>{
+   const r=getRecord(day);rows.push([LABELS[i],d.title,"Interactive Practice",r?r.latestScore+"/"+r.latestTotal+" ("+r.latest+"%)":"",r?r.best+"%":"",r?r.attempts:0,r?percent(r.totalScore,r.totalItems)+"%":"",r?clock(r.time):""]);
+ });
+ const csv="\ufeff"+rows.map(row=>row.map(value=>'"'+String(value??"").replace(/"/g,'""')+'"').join(",")).join("\r\n");
+ const a=document.createElement("a"),url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.href=url;a.download="AP7_Term2_Week5_Progress.csv";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000)
+}
+function resetAll(){if(!confirm("Tiyak na buburahin ang lahat ng progress sa browser na ito?"))return;progressState.records={};persist();renderHome();showDashboard()}
+document.addEventListener("click",event=>{
+ const option=event.target.closest("[data-option]");if(option){choose(Number(option.dataset.option));return}
+ const startButton=event.target.closest("[data-start]");if(startButton){saveName();start(startButton.dataset.start);return}
+});
+document.addEventListener("keydown",event=>{
+ if(!$("quiz").classList.contains("hidden")&&active&&!["INPUT","TEXTAREA"].includes(document.activeElement?.tagName)){
+   if(!active.answered&&/^[1-4]$/.test(event.key)){choose(Number(event.key)-1);event.preventDefault()}
+   else if(active.answered&&event.key==="Enter"){nextQuestion();event.preventDefault()}
+ }
+});
+$("nextBtn").addEventListener("click",nextQuestion);
+$("quitBtn").addEventListener("click",exitQuiz);
+$("dashboardNav").addEventListener("click",()=>{clearInterval(timer);active=null;saveName();showDashboard()});
+$("dashHomeBtn").addEventListener("click",()=>{renderHome();reveal("home")});
+$("resultHomeBtn").addEventListener("click",()=>{renderHome();reveal("home")});
+$("againBtn").addEventListener("click",()=>start(lastRun.day));
+$("wrongBtn").addEventListener("click",()=>{if(active?.wrong.length)start(active.day,active.wrong)});
+$("downloadBtn").addEventListener("click",downloadCSV);
+$("resetBtn").addEventListener("click",resetAll);
+$("studentName").addEventListener("change",saveName);
+$("studentName").value=progressState.name||"";
+renderHome();
+</script>
+</body>
+</html>
